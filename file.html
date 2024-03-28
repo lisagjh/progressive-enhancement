@@ -1,41 +1,98 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>File upload met preview / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Denk niet te ingewikkeld */
-		</style>
-		<script type="module">
-			/* Schrijf hier eventueel je client-side JavaScript */
-			
-			/* Hint: Met een paar regels kom je al een heel eind */
+<head>
+	<meta charset="utf-8">
+	<title>File upload met preview / Progressive Enhancement / FDND</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
+	<link href="assets/styles.css" rel="stylesheet">
+	<style>
+		/* Schrijf hier gewoon je CSS voor dit component */
+		body {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-			/* Hint: Via JS kun je Custom Properties in CSS aanpassen */
-		</script>
-	</head>
-	<body>
-		<h1>File upload met preview</h1>
+		label {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 30rem;
+			height: 30rem;
+			margin-top: 2rem;
+			background: white;
+			box-shadow: 0rem 0.1rem 0.5rem var(--purple);
+			border-radius: 10px;
+			user-select: none;
+			cursor: pointer;
+			color: var(--purple);
+			transition: all .25s ease-in;
+		}
 
-		<!-- Voor het uploaden van een bestand heb je altijd een formulier nodig.
-			 Dus die krijg je alvast. Maak je over de server niet druk; het gaat om de UI. -->
-		<form method="post">
+		label:hover {
+			color: var(--blue);
+			box-shadow: 0rem 0.1rem 0.5rem var(--blue);
+		}
 
-			<!-- Hint: Denk niet te ingewikkeld -->
+		button {
+			margin-top: 1rem;
+		}
 
-			<button type="submit" class="fdnd-button">Uploaden</button>
+		button:disabled {
+			background-color: grey;
+			color: white;
+			cursor: default;
+		}
 
-		</form>
+		#image-view {
+			width: 25rem;
+			height: 20rem;
+			margin-top: 3rem;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	</style>
+	<script type="module">
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/file.mp4" width="1496" height="496" controls muted autoplay loop>
-				<a href="assets/file.mp4">assets/file.mp4</a>
-			</video>
-		</details>
-	</body>
+		const dropArea = document.querySelector("#dropArea")
+		const inputFile = document.querySelector("#myFile")
+		const imageView = document.querySelector("#image-view")
+		const button = document.querySelector("button")
+
+		inputFile.addEventListener("change", uploadImage);
+
+		function uploadImage() {
+			let imgLink = URL.createObjectURL(inputFile.files[0]);
+			imageView.style.backgroundImage = `url(${imgLink})`;
+			button.disabled = false
+		}
+	</script>
+</head>
+
+<body>
+	<h1>File upload met preview</h1>
+
+	<form method="post">
+
+		<label for="myFile" id="dropArea">Upload your image
+			<input type="file" id="myFile" name="filename" accept="image/x-png, image/jpeg" style="display : none" />
+			<div id="image-view"></div>
+		</label>
+
+		<button type="submit" class="fdnd-button" disabled>Uploaden</button>
+	</form>
+
+	<!-- <details open>
+		<summary>Demo video</summary>
+		<video src="assets/file.mp4" width="1496" height="496" controls muted autoplay loop>
+			<a href="assets/file.mp4">assets/file.mp4</a>
+		</video>
+	</details> -->
+</body>
+
 </html>
