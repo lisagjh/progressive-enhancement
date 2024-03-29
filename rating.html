@@ -1,27 +1,64 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>Rating / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
-			
-			/* Hint: als je de sterren als achtergrond voor iets wilt gebruiken, zijn dit de SVG's die je kunt gebruiken:
+
+<head>
+	<meta charset="utf-8">
+	<title>Rating / Progressive Enhancement / FDND</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
+	<link href="assets/styles.css" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 4rem;
+		}
+
+		details {
+			margin-top: 20rem;
+		}
+
+		form {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: 1fr;
+			margin: 3rem;
+		}
+
+		label {
+			position: relative;
+			grid-row: 1/2;
+			display: inline-block;
+			width: 5rem;
+			height: 5rem;
+			padding: 0.3rem;
+		}
+
+		svg:nth-of-type(2) {
+			opacity: 0;
+			z-index: 10;
+		}
+
+		label:hover svg:nth-of-type(2) {
+			opacity: 1;
+		}
+
+		/* Hint: als je de sterren als achtergrond voor iets wilt gebruiken, zijn dit de SVG's die je kunt gebruiken:
 				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path></svg>')
 				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path></svg>')
 			*/
+	</style>
+</head>
 
-			/* Hint: met Grid Layout kun je elementen over elkaar heen leggen */
-		</style>
-	</head>
-	<body>
-		<h1>Rating</h1>
-
-		<!-- Dit zijn de SVG's van de sterren. Maar horen die wel in HTML, of is dit eigenlijk styling?
-
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<body>
+	<h1>Rating</h1>
+	<!-- 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 				<path fill="#66E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
 			</svg>
 
@@ -29,19 +66,77 @@
 				<path fill="#66E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
 			</svg>
 		-->
+	<form method="post" class="rating">
 
-		<!-- Waarschijnlijk wil je je rating ooit opslaan, dus heb je een formulier nodig -->
-		<form method="post">
+		<label for="star5">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z">
+				</path>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z">
+				</path></label>
+		<input type="radio" id="star5" name="rate" value="5" />
 
-			<!-- Hint: hoeveel verschillende ratings kun je geven? -->
+		<label for="star4">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z">
+				</path>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z">
+				</path></label>
+		<input type="radio" id="star4" name="rate" value="4" />
 
-		</form>
+		<label for="star3">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z">
+				</path>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z">
+				</path></label>
+		<input type="radio" id="star3" name="rate" value="3" />
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/rating.mp4" width="271" height="110" controls muted autoplay loop>
-				<a href="assets/rating.mp4">assets/rating.mp4</a>
-			</video>
-		</details>
-	</body>
+		<label for="star2">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z">
+				</path>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z">
+				</path></label>
+		<input type="radio" id="star2" name="rate" value="2" />
+
+		<label for="star1">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z">
+				</path>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path fill="#66E5BF"
+					d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z">
+				</path></label>
+		<input type="radio" id="star1" name="rate" value="1" />
+
+
+	</form>
+
+	<!-- <details open>
+		<summary>Demo video</summary>
+		<video src="assets/rating.mp4" width="271" height="110" controls muted autoplay loop>
+			<a href="assets/rating.mp4">assets/rating.mp4</a>
+		</video>
+	</details> -->
+</body>
+
 </html>

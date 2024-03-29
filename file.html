@@ -37,6 +37,10 @@
 		label:hover {
 			color: var(--blue);
 			box-shadow: 0rem 0.1rem 0.5rem var(--blue);
+
+			#image-view {
+				border: 3px dashed var(--purple);
+			}
 		}
 
 		button {
@@ -53,8 +57,11 @@
 			width: 25rem;
 			height: 20rem;
 			margin-top: 3rem;
+			padding: 0.1rem;
+			border: 3px dashed var(--green);
 			background-size: contain;
 			background-repeat: no-repeat;
+			transition: all .25s ease-in;
 		}
 	</style>
 	<script type="module">
