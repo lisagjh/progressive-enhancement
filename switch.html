@@ -1,28 +1,108 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>Switch control / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+<head>
+	<meta charset="utf-8">
+	<title>Switch control / Progressive Enhancement / FDND</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
+	<link href="assets/styles.css" rel="stylesheet">
+	<style>
+		body {
+			display: grid;
+			place-items: center;
+			padding: 10rem 0;
+			transition: .6s;
+		}
 
-			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
-		</style>
-	</head>
-	<body>
-		<h1>Switch control</h1>
-		
-		<!-- Hint: Op het WebKit blog stond hierover vorige maand een goed artikel -->
+		details {margin-top: 5rem;}
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
-				<a href="assets/switch.mp4">assets/switch.mp4</a>
-			</video>
-		</details>
-	</body>
+		label {
+			position: relative;
+			display: inline-block;
+			width: 4.1rem;
+			height: 2.2rem;
+			background-color: #fff;
+			border-radius: 2rem;
+			padding: 0.2rem;
+		}
+
+		input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+
+		span {
+			position: absolute;
+			background-color: #ddd;
+			border-radius: 2rem;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transition: .2s;
+		}
+
+		span:before {
+			position: absolute;
+			background-color: white;
+			content: "";
+			height: 1.8rem;
+			width: 1.8rem;
+			left: 4px;
+			bottom: 0.4rem;
+			border-radius: 50%;
+			transition: .5s;
+		}
+
+		input:checked+span {
+			background-color: var(--green);
+		}
+
+		input:checked+span:before {
+			transform: translateX(2rem);
+		}
+
+		input:focus-visible+span {
+			border: 2px solid var(--blue);
+		}
+
+		.dark {
+			background-color: var(--blue);
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Switch control</h1>
+
+	<label>
+		<input type="checkbox">
+		<span class="slider"></span>
+	</label>
+
+	<!-- Hint: Op het WebKit blog stond hierover vorige maand een goed artikel -->
+
+	<details closed>
+		<summary>Demo video</summary>
+		<video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
+			<a href="assets/switch.mp4">assets/switch.mp4</a>
+		</video>
+	</details>
+</body>
+
+<script>
+
+	const button = document.querySelector("span")
+	const body = document.querySelector("body")
+
+	button.addEventListener("click", function () {
+		body.classList.toggle("dark")
+	})
+
+</script>
+
 </html>
