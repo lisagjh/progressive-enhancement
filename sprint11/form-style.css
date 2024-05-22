@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+html {
+    --inter: "Inter", sans-serif, arial, helvetica, sans-serif;
+    --lora: "Lora", serif, arial, helvetica, sans-serif;
+    --big: 1.5rem;
+    --reg: 1rem;
+    --half: 0.5rem;
+    --fourth: 0.25rem;
+
+    --violet: #B084CC;
+    --purple: #665687;
+    --dark-purple: #190933;
+    --aqua: #5DD9C1;
+    --red: #e6654f;
+}
+
+* {
+    font-family: var(--inter);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* algemene styling */
+
+h1, legend {
+    font-family: var(--lora);
+    font-weight: bolder;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    padding-top: 4rem;
+}
+
+form {
+    padding: var(--half);
+    margin: var(--big) 0;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    background-color: var(--violet);
+    padding: var(--reg);
+    margin-bottom: var(--big);
+    border: none;
+    border-radius: 6px;
+}
+
+legend {
+    padding: 0 var(--big);
+}
+
+label {
+    margin-top: var(--half);
+}
+
+input {
+    margin-bottom: var(--half);
+    max-width: 15rem;
+    padding: var(--fourth);
+}
+
+/* legend in de fieldset styling */
+
+fieldset {
+    position: relative;
+    padding-block-start: calc(var(--reg) + 1lh);
+}
+
+legend {
+    position: absolute;
+    top: var(--reg);
+}
+
+/* states */
+
+input:valid
+
+input:invalid
