@@ -25,10 +25,19 @@
                 <input type="text" class="name" required>
             </fieldset>
 
-            <fieldset>
-                <legend>Wachtwoord</legend>
+            <fieldset id="passwords">
+                <legend>Stel wachtwoord in</legend>
+                <div>
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" name="password" required>
+                    <p>Je wachtwoord is verplicht.</p>
+                </div>
 
-                <!-- todo: hoe semantisch wachtwoord en wachtwoord check? -->
+                <div>
+                    <label for="repeat-password">Herhaal wachtwoord</label>
+                    <input type="password" id="repeat-password" name="repeat-password" required>
+                    <p>Bevestig wachtwoord.</p>
+                </div>
             </fieldset>
 
             <button type="submit">Maak account</button>
