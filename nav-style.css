@@ -90,10 +90,6 @@ nav li {
   transition: all 0.3s ease-in;
 }
 
-nav li:hover {
-  width: 120%;
-}
-
 nav a {
   color: var(--black);
   font-size: 0.9rem;
@@ -134,11 +130,6 @@ nav .profile {
   background-color: var(--profile);
 }
 
-nav li:hover img {
-  transition: all 0.2s ease-in-out;
-  scale: 1.05;
-}
-
 /* hamburger svg animation */
 
 .hamburger rect {
@@ -168,77 +159,6 @@ svg .rect-three {
   translate: -200px;
 }
 
-/* ANIMATIONS */
-
-nav li {
-  opacity: 0;
-  translate: 0 -200px;
-}
-
-nav li:first-of-type {
-  animation: stagger 0.3s ease-in-out 0.05s forwards;
-}
-
-nav li:nth-of-type(2) {
-  animation: stagger 0.3s ease-in-out 0.1s forwards;
-}
-
-nav li:nth-of-type(3) {
-  animation: stagger 0.3s ease-in-out 0.15s forwards;
-}
-
-nav li:nth-of-type(4) {
-  animation: stagger 0.3s ease-in-out 0.2s forwards;
-}
-
-nav li:nth-of-type(5) {
-  animation: stagger 0.3s ease-in-out 0.25s forwards;
-}
-
-@keyframes stagger {
-  80% {
-    opacity: 1;
-    translate: 0 0;
-  }
-  90% {
-    opacity: 1;
-    translate: 0 10px;
-  }
-  100% {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-
-nav {
-  animation: show-menu 0.3s ease-out;
-}
-
-@keyframes show-menu {
-  from {
-    opacity: 0;
-    translate: 0px -200px;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
-
-/* menu list items hover anim for the images */
-nav li:hover img {
-  animation: wobble 1.5s ease-in-out alternate infinite;
-}
-
-@keyframes wobble {
-  from {
-    rotate: -2deg;
-  }
-  to {
-    rotate: 2deg;
-  }
-}
-
 /* toggle classes */
 
 .show {
@@ -247,6 +167,88 @@ nav li:hover img {
 
 .move-btn {
   translate: 0 110px;
+}
+
+/* prefers-reduced-motion / animations */
+
+@media (prefers-reduced-motion: no-preference) {
+  nav li {
+    opacity: 0;
+    translate: 0 -200px;
+  }
+
+  nav li:hover {
+    width: 120%;
+  }
+
+  nav li:hover img {
+    transition: all 0.2s ease-in-out;
+    scale: 1.05;
+  }
+
+  nav li:first-of-type {
+    animation: stagger 0.3s ease-in-out 0.05s forwards;
+  }
+
+  nav li:nth-of-type(2) {
+    animation: stagger 0.3s ease-in-out 0.1s forwards;
+  }
+
+  nav li:nth-of-type(3) {
+    animation: stagger 0.3s ease-in-out 0.15s forwards;
+  }
+
+  nav li:nth-of-type(4) {
+    animation: stagger 0.3s ease-in-out 0.2s forwards;
+  }
+
+  nav li:nth-of-type(5) {
+    animation: stagger 0.3s ease-in-out 0.25s forwards;
+  }
+
+  @keyframes stagger {
+    80% {
+      opacity: 1;
+      translate: 0 0;
+    }
+    90% {
+      opacity: 1;
+      translate: 0 10px;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  nav {
+    animation: show-menu 0.3s ease-out;
+  }
+
+  @keyframes show-menu {
+    from {
+      opacity: 0;
+      translate: 0px -200px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  /* menu list items hover anim for the images */
+  nav li:hover img {
+    animation: wobble 1.5s ease-in-out alternate infinite;
+  }
+
+  @keyframes wobble {
+    from {
+      rotate: -2deg;
+    }
+    to {
+      rotate: 2deg;
+    }
+  }
 }
 
 /* media querys */
@@ -302,6 +304,7 @@ nav li:hover img {
     translate: 160px 0;
   }
 
+  
   @keyframes show-menu {
     from {
       opacity: 0;
