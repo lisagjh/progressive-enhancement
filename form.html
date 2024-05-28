@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="nl">
+<!-- https://github.com/joostf/pleasurable-form-validation/tree/main -->
 
 <head>
     <meta charset="utf-8">
@@ -19,25 +20,19 @@
                 <legend>Gebruikers gegevens</legend>
 
                 <label for="email">Email</label>
-                <input type="email" required>
+                <input id="email" type="email" required>
 
                 <label for="name">Naam</label>
-                <input type="text" class="name" required>
+                <input type="text" id="name" required>
             </fieldset>
 
             <fieldset id="passwords">
                 <legend>Stel wachtwoord in</legend>
-                <div>
-                    <label for="password">Wachtwoord</label>
-                    <input type="password" id="password" name="password" required>
-                    <p>Je wachtwoord is verplicht.</p>
-                </div>
+                <label for="password">Wachtwoord</label>
+                <input type="password" id="password" name="password" required>
 
-                <div>
-                    <label for="repeat-password">Herhaal wachtwoord</label>
-                    <input type="password" id="repeat-password" name="repeat-password" required>
-                    <p>Bevestig wachtwoord.</p>
-                </div>
+                <label for="repeat-password">Herhaal wachtwoord</label>
+                <input type="password" id="repeat-password" name="repeat-password" required>
             </fieldset>
 
             <button type="submit">Maak account</button>
