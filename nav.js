@@ -3,6 +3,8 @@ const nav = document.querySelector("nav");
 const menuSpan = document.querySelector(".menu-span")
 const sluitSpan = document.querySelector(".sluit-span")
 
+nav.style.display = "none"
+
 menuBtn.addEventListener("click", function () {
   nav.classList.toggle("show");
   menuBtn.classList.toggle("move-btn");
