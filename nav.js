@@ -1,16 +1,10 @@
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector("nav");
-const menuSpan = document.querySelector(".menu-span")
-const sluitSpan = document.querySelector(".sluit-span")
-
-nav.style.display = "none"
 
 menuBtn.addEventListener("click", function () {
   nav.classList.toggle("show");
   menuBtn.classList.toggle("move-btn");
   menuBtn.classList.toggle("cross");
-  menuSpan.classList.toggle("hide-span")
-  sluitSpan.classList.toggle("show-span")
 });
 
 // close menu when clicked outside of it
